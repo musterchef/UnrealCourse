@@ -10,7 +10,8 @@ UPositionReport::UPositionReport()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
+	// LOG
+
 }
 
 
@@ -18,9 +19,11 @@ UPositionReport::UPositionReport()
 void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
+    FString ObjectName = GetOwner()->GetName();
+    FString ObjectPos = GetOwner()->GetTransform().GetLocation().ToString();
 
-	// ...
-	
+    UE_LOG(LogTemp, Warning, TEXT("Position report for %s is %s"), *ObjectName, *ObjectPos);
+                                  
 }
 
 
